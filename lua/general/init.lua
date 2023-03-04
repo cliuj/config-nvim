@@ -1,0 +1,5 @@
+require("general.settings")
+require("general.autocmds")
+require("general.keymaps")
+require("general.lazy")
+require("general.colorscheme")
