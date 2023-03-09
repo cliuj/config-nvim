@@ -6,4 +6,10 @@ return {
       MiniMisc.setup_auto_root({".git"})
     end,
   },
+  {
+    'iamcco/markdown-preview.nvim',
+    version = '*',
+    event = "BufRead",
+    build = ":call mkdp#util#install()",
+  },
 }
