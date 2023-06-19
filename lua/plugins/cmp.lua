@@ -41,6 +41,7 @@ return {
       "hrsh7th/cmp-buffer",
     	"hrsh7th/cmp-path",
     	"saadparwaiz1/cmp_luasnip",
+      "nvim-neorg/neorg",
     },
     opts = function()
       local cmp = require("cmp")
@@ -71,6 +72,7 @@ return {
           { name = "luasnip" },
           { name = "buffer" },
           { name = "path" },
+          { name = "neorg"},
         }),
       }
     end,
