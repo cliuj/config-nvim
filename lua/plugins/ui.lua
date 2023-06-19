@@ -1,5 +1,4 @@
 return {
-  -- Telescope
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.1",
@@ -8,9 +7,9 @@ return {
     },
     cmd = "Telescope",
     keys = {
-      { "<leader>,", "<cmd>Telescope find_files find_command=fd,--hidden,--exclude,.git<cr>", desc = "Find Files (fd)"},
+      { "<leader>f", "<cmd>Telescope find_files find_command=fd,--hidden,--exclude,.git<cr>", desc = "Find Files (fd)"},
       { "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Find in Files (ripgrep)"},
-      { "<leader>;", "<cmd>Telescope command_history<cr>", desc = "Command history"},
+      { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command history"},
       { "<leader>b", "<cmd>Telescope buffers show_all_buffer=true<cr>", desc = "Switch Buffer"},
     }
   },
