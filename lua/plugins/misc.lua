@@ -66,4 +66,10 @@ return {
       { "nvim-neorg/neorg-telescope" },
     },
   },
+  {
+    'TimUntersberger/neogit',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+  },
 }
