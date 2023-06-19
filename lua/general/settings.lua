@@ -1,6 +1,5 @@
 local g = vim.g
 local opt = vim.opt
-local opt_local = vim.opt_local
 
 -- Map leader to space
 g.mapleader = ' '
@@ -18,15 +17,15 @@ opt.number = true
 
 -- Cursor
 opt.cursorline = true
-opt.guicursor = "i:block"
+--opt.guicursor = "i:block"
 
 -- Enable undo file
 opt.undofile = true
 
 -- Indentation
-opt_local.expandtab = true
-opt_local.smarttab = true
-opt_local.autoindent = true
+opt.expandtab = true
+opt.smarttab = true
+opt.autoindent = true
 
 -- Backspace Indentation
 opt.backspace = {"indent", "eol", "start"}
