@@ -49,3 +49,4 @@ opt.cmdheight = 2
 opt.splitbelow = true
 opt.splitright = true
 
+opt.colorcolumn = "80"
