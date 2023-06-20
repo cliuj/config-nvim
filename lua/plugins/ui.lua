@@ -28,7 +28,7 @@ return {
       fn.sign_define("DiagnosticSignInfo",
         {text = " ", texthl = "DiagnosticSignInfo"})
       fn.sign_define("DiagnosticSignHint",
-        {text = "", texthl = "DiagnosticSignHint"})
+        {text = "󰨼", texthl = "DiagnosticSignHint"})
 
       require("neo-tree").setup({
         close_if_last_window = false,
