@@ -1,6 +1,7 @@
 return {
   {
     'echasnovski/mini.misc', version = '*',
+    tag = "v0.9.0",
     config = function()
       require("mini.misc") .setup()
       MiniMisc.setup_auto_root({".git"})
@@ -8,12 +9,13 @@ return {
   },
   {
     'iamcco/markdown-preview.nvim',
-    version = '*',
+    version = "0.0.10",
     event = "BufRead",
     build = ":call mkdp#util#install()",
   },
   {
     'nvim-neorg/neorg',
+    version = "5.0.0",
     build = ":Neorg sync-parsers",
     config = function()
       require('neorg').setup {
@@ -68,6 +70,7 @@ return {
   },
   {
     'TimUntersberger/neogit',
+    commit = "68a3e90e9d1ed9e362317817851d0f34b19e426b",
     dependencies = {
       'nvim-lua/plenary.nvim',
     },

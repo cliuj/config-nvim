@@ -1,7 +1,7 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.1",
+    version = "0.1.2",
     dependencies = {
       "nvim-lua/plenary.nvim"
     },
@@ -9,6 +9,7 @@ return {
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
+    version = "2.64",
     cmd = "Neotree",
     dependencies = {
       "nvim-tree/nvim-web-devicons"
@@ -49,6 +50,7 @@ return {
   },
   {
     "crispgm/nvim-tabline",
+    commit = "7044c5b73678c7b0161f4c37acd0f555cc3ce908",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
@@ -58,6 +60,7 @@ return {
   },
   {
     "folke/which-key.nvim",
+    version = "1.4.3",
     event = "VeryLazy",
     opts = {
       plugins = { spelling = true },
@@ -78,6 +81,7 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    tag = "v0.9.0",
     opts = {
       highlight = {
         enable = true,

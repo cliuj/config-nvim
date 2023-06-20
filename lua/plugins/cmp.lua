@@ -2,6 +2,7 @@ return {
   -- snippets
   {
     "L3MON4D3/LuaSnip",
+    version = "1.2.1",
     build = "make install_jsregexp",
     dependencies = {
       "rafamadriz/friendly-snippets",
@@ -18,7 +19,7 @@ return {
   -- auto completion
   {
     "hrsh7th/nvim-cmp",
-    version = false,
+    commit = "fa492591fecdc41798cd5d3d1713232a5088fba0",
     -- load cmp on InsertEnter
     event = "InsertEnter",
     -- these dependencies will only be loaded when cmp loads
@@ -67,6 +68,7 @@ return {
   },
   {
     "echasnovski/mini.pairs",
+    tag = "v0.9.0",
     event = "VeryLazy",
     config = function(_, opts)
       require("mini.pairs").setup(opts)
