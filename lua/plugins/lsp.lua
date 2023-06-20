@@ -3,7 +3,6 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
-    keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
     opts = {
       ensure_installed = {
         "stylua",
@@ -12,7 +11,6 @@ return {
         "flake8",
       },
     },
-    ---@param opts MasonSettings | {ensure_installed: string[]}
     config = function(_, opts)
       require("mason").setup(opts)
       local mr = require("mason-registry")
