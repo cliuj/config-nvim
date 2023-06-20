@@ -14,6 +14,7 @@ vim.cmd([[
 ]])
 
 
+-- Plugins
 if require("mason") ~= nil then
   map('n', "<leader>cm", "<cmd>Mason<cr>", { noremap = true })
 end
@@ -33,4 +34,8 @@ if require('luasnip') ~= nil then
   map("s", "<Tab>", "<cmd>lua require('luasnip').jump(1)<cr>", { noremap = true})
   map("i", "<S-Tab>", "<cmd>lua require('luasnip').jump(1)<cr>", { noremap = true})
   map("s", "<S-Tab>", "<cmd>lua require('luasnip').jump(1)<cr>", { noremap = true})
+end
+
+if require('neogit') ~= nil then
+  map("n", "<leader>g", "<cmd>Neogit kind=vsplit<cr>", { noremap = true })
 end
