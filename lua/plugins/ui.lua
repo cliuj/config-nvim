@@ -82,42 +82,42 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     tag = "v0.9.0",
-    opts = {
-      highlight = {
-        enable = true,
-      },
-      indent = {
-        enable = true,
-        disable = {
-          python = {
-            "python",
-          },
+    build = ":TSUpdate",
+    cmd = { "TSUpdateSync" },
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      require('nvim-treesitter.configs').setup{
+        highlight = {
+          enable = true,
         },
-      },
-      context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
-      },
-      ensure_installed = {
-        "bash",
-        "c",
-        "help",
-        "html",
-        "javascript",
-        "json",
-        "lua",
-        "luap",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "regex",
-        "tsx",
-        "typescript",
-        "vim",
-        "yaml",
-      },
-    },
+        indent = {
+          enable = true,
+        },
+        context_commentstring = {
+          enable = true,
+          enable_autocmd = false,
+        },
+        ensure_installed = {
+          "bash",
+          "c",
+          "html",
+          "javascript",
+          "json",
+          "lua",
+          "luap",
+          "markdown",
+          "markdown_inline",
+          "python",
+          "query",
+          "regex",
+          "tsx",
+          "typescript",
+          "vim",
+          "yaml",
+          "norg",
+        },
+      }
+    end,
   },
   {
     "echasnovski/mini.indentscope",
