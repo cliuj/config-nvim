@@ -84,6 +84,9 @@ return {
     end,
   },
   {
+    "nvim-treesitter/playground"
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     tag = "v0.9.0",
     build = ":TSUpdate",
