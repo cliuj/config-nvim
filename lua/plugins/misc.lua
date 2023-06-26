@@ -3,7 +3,7 @@ return {
     'echasnovski/mini.misc', version = '*',
     tag = "v0.9.0",
     config = function()
-      require("mini.misc") .setup()
+      require("mini.misc").setup()
       MiniMisc.setup_auto_root({".git"})
     end,
   },
