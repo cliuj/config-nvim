@@ -8,6 +8,10 @@ return {
     cmd = "Telescope",
   },
   {
+    "nvim-tree/nvim-web-devicons",
+    lazy = true,
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     version = "2.64",
     cmd = "Neotree",
