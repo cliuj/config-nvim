@@ -9,6 +9,15 @@ return {
         "shellcheck",
         "shfmt",
         "flake8",
+        "pyright",
+        "marksman",
+        "json-lsp",
+        "luacheck",
+        "luaformatter",
+        "bash-language-server",
+        "haskell-language-server",
+        "lua-language-server",
+        "yaml-language-server",
       },
     },
     config = function(_, opts)
@@ -140,7 +149,6 @@ return {
       require("mason-lspconfig").setup_handlers({ setup })
     end,
   },
-
   {
     "elkowar/yuck.vim"
   },
