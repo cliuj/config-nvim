@@ -152,4 +152,7 @@ return {
   {
     "elkowar/yuck.vim"
   },
+  {
+    "neovimhaskell/haskell-vim",
+  },
 }
