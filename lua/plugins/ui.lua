@@ -8,6 +8,35 @@ return {
     cmd = "Telescope",
   },
   {
+    "nvim-telescope/telescope-project.nvim",
+    config = function()
+      local project_actions = require("telescope._extensions.project.actions")
+      require('telescope').setup {
+        extensions = {
+          project = {
+            base_dirs = {
+              "~/.config",
+              { "~/develop", max_depth = 3 },
+            },
+            hidden_files = true, -- default: false
+            theme = "dropdown",
+            order_by = "asc",
+            search_by = "title",
+            -- default for on_project_selected = find project files
+            on_project_selected = function(prompt_bufnr)
+              -- Do anything you want in here. For example:
+              project_actions.find_project_files(prompt_bufnr, true)
+            end
+          }
+        }
+      }
+      require('telescope').load_extension('project')
+    end,
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+  },
+  {
     "nvim-tree/nvim-web-devicons",
     lazy = true,
   },

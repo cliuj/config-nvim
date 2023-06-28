@@ -25,10 +25,14 @@ if require('telescope') ~= nil then
   map("n", "<leader>/", "<cmd>Telescope live_grep<cr>", { noremap = true })
   map("n", "<leader>:", "<cmd>Telescope command_history<cr>", { noremap = true })
   map("n", "<leader>b", "<cmd>Telescope buffers show_all_buffer=true<cr>", { noremap = true })
+
+  if require('telescope').load_extension('project') ~= nil then
+    map("n", "<leader>p", "<cmd>Telescope project<cr>", { noremap = true })
+  end
 end
 
 if require('neo-tree') ~= nil then
-  map("n", "<leader>p", "<cmd>Neotree filesystem reveal<cr>", { noremap = true })
+  map("n", "<leader>t", "<cmd>Neotree filesystem reveal<cr>", { noremap = true })
 end
 
 if require('luasnip') ~= nil then
