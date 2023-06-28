@@ -61,5 +61,12 @@ return {
     config = function()
       require('colorizer').setup{}
     end,
-  }
+  },
+  {
+    "ggandor/leap.nvim",
+    commit = "dabcce410ea8655f3c0acaee8da8f366b4a629a8",
+    config = function()
+      require('leap').add_default_mappings()
+    end
+  },
 }
