@@ -3,12 +3,9 @@ return {
     "nvim-telescope/telescope.nvim",
     version = "0.1.2",
     dependencies = {
-      "nvim-lua/plenary.nvim"
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-project.nvim",
     },
-    cmd = "Telescope",
-  },
-  {
-    "nvim-telescope/telescope-project.nvim",
     config = function()
       local project_actions = require("telescope._extensions.project.actions")
       require('telescope').setup {
@@ -30,11 +27,8 @@ return {
           }
         }
       }
-      require('telescope').load_extension('project')
     end,
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
+    cmd = "Telescope",
   },
   {
     "nvim-tree/nvim-web-devicons",
