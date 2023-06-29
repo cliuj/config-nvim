@@ -6,13 +6,6 @@ map('n', '<leader>w', '<C-w>', { noremap = true })
 
 map('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
 
-vim.cmd([[
-  " Hotkey to check highlight groups
-  nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-  \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-  \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-]])
-
 
 -- Plugins
 if require("mason") ~= nil then
