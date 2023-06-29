@@ -71,5 +71,12 @@ return {
       vim.keymap.del({ "x", "o" }, "x")
       vim.keymap.del({ "x", "o" }, "X")
     end,
-  }
+  },
+  {
+    "boltlessengineer/bufterm.nvim",
+    commit = "e2251bffcfb2117395e9bc1a82640f9671267e0d",
+    config = function()
+      require('bufterm').setup()
+    end,
+  },
 }

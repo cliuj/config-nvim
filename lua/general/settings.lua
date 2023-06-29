@@ -50,3 +50,5 @@ opt.splitbelow = true
 opt.splitright = true
 
 opt.colorcolumn = "80"
+
+opt.hidden = false

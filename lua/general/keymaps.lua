@@ -43,3 +43,7 @@ end
 if require('neogit') ~= nil then
   map("n", "<leader>g", "<cmd>Neogit kind=vsplit<cr>", { noremap = true })
 end
+
+if require('bufterm') ~= nil then
+  map("n", "<leader>;", "<cmd>tabnew | BufTermEnter<cr>", { noremap = true })
+end
