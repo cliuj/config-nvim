@@ -32,7 +32,7 @@ if require('telescope') ~= nil then
 end
 
 if require('neo-tree') ~= nil then
-  map("n", "<leader>t", "<cmd>Neotree filesystem reveal<cr>", { noremap = true })
+  map("n", "<leader>l", "<cmd>Neotree filesystem reveal<cr>", { noremap = true })
 end
 
 if require('luasnip') ~= nil then
