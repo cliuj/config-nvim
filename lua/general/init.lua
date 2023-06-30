@@ -1,5 +1,4 @@
 require("general.settings")
 require("general.lazy")
-require("general.colorscheme")
 require("general.autocmds")
 require("general.keymaps")

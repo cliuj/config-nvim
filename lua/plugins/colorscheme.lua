@@ -4,8 +4,13 @@ return {
     version = "1.0.0",
     lazy = false,
     priority = 1000,
-    config = function()
-      vim.cmd([[colorscheme dark-meadow]])
-    end,
   },
+  {
+    "cliuj/midnight-meadow.nvim",
+    priority = 1000,
+    lazy = true,
+    config = function()
+      vim.cmd.colorscheme("midnight-meadow")
+    end,
+  }
 }

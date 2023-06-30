@@ -3,33 +3,27 @@ return {
   commit = "05d78e9fd0cdfb4545974a5aa14b1be95a86e9c9",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
+    {
+      "cliuj/midnight-meadow.nvim",
+    },
   },
   event = "VeryLazy",
   config = function()
-    local colors = {
-      blue   = '#80a0ff',
-      cyan   = '#79dac8',
-      black  = '#080808',
-      white  = '#c6c6c6',
-      red    = '#ff5189',
-      violet = '#d183e8',
-      grey   = '#303030',
-    }
-
+    local colors = require("midnight-meadow.colors").palette
     local bubbles_theme = {
       normal = {
-        a = { fg = colors.black, bg = colors.violet },
-        b = { fg = colors.white, bg = colors.grey },
-        c = { fg = colors.black, bg = colors.black },
+        a = { fg = colors.thistle, bg = colors.green },
+        b = { fg = colors.thistle, bg = colors.grey23 },
+        c = { fg = colors.thistle, bg = colors.none },
       },
 
-      insert = { a = { fg = colors.black, bg = colors.blue } },
-      visual = { a = { fg = colors.black, bg = colors.cyan } },
+      insert = { a = { fg = colors.black, bg = colors.teal } },
+      visual = { a = { fg = colors.black, bg = colors.sky_blue } },
       replace = { a = { fg = colors.black, bg = colors.red } },
 
       inactive = {
-        a = { fg = colors.white, bg = colors.black },
-        b = { fg = colors.white, bg = colors.black },
+        a = { fg = colors.thistle, bg = colors.black },
+        b = { fg = colors.thistle, bg = colors.black },
         c = { fg = colors.black, bg = colors.black },
       },
     }
