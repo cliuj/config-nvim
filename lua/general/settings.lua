@@ -55,3 +55,15 @@ opt.hidden = false
 
 opt.conceallevel = 2
 
+-- Folds
+opt.foldcolumn = "auto"
+opt.fillchars = {
+   vert = "│", -- alternatives │
+   fold = " ",
+   eob = " ", -- suppress ~ at EndOfBuffer
+   diff = "╱", -- alternatives = ⣿ ░ ─
+   msgsep = "‾",
+   foldopen = "▾",
+   foldsep = "│",
+   foldclose = "▸",
+}
