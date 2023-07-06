@@ -157,6 +157,9 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       symbol = "│",
+      draw = {
+        delay = 10,
+      },
       options = { try_as_border = true },
     },
     init = function()
