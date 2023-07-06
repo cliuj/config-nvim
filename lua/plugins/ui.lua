@@ -14,6 +14,7 @@ return {
             base_dirs = {
               "~/.config",
               { "~/develop", max_depth = 3 },
+              { "~/documents/norg/", max_depth = 3 },
             },
             hidden_files = true, -- default: false
             theme = "dropdown",
