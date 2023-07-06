@@ -18,7 +18,7 @@ opt.relativenumber = true
 
 -- Cursor
 opt.cursorline = true
-opt.guicursor = "i:block"
+--opt.guicursor = "i:block"
 
 -- Enable undo file
 opt.undofile = true
