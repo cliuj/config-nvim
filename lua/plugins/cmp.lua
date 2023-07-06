@@ -31,6 +31,7 @@ return {
     	"hrsh7th/cmp-path",
     	"saadparwaiz1/cmp_luasnip",
       "nvim-neorg/neorg",
+      "uga-rosa/cmp-dictionary",
     },
     opts = function()
       local cmp = require("cmp")
@@ -66,9 +67,39 @@ return {
           },
           { name = "path" },
           { name = "neorg"},
+          {
+            name = "dictionary",
+            keyword_length = 2,
+          },
         }),
       }
     end,
+    config = function(_, opts)
+      require("cmp").setup(opts)
+    end,
+  },
+  {
+    "uga-rosa/cmp-dictionary",
+    opts = {
+      exact = 2,
+      first_case_insensitive = false,
+      document = false,
+      document_command = "wn %s -over",
+      async = false,
+      sqlite = false,
+      max_items = -1,
+      capacity = 5,
+      debug = false,
+    },
+    config = function(_, opts)
+      local dict = require("cmp_dictionary")
+      dict.setup(opts)
+      dict.switcher({
+        spelllang = {
+          en = "/usr/share/dict/usa"
+        },
+      })
+    end
   },
   {
     "echasnovski/mini.pairs",
