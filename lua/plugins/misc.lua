@@ -15,7 +15,6 @@ return {
   },
   {
     'nvim-neorg/neorg',
-    version = "5.0.0",
     build = ":Neorg sync-parsers",
     config = function()
       require('neorg').setup {
