@@ -35,6 +35,11 @@ return {
               engine = "nvim-cmp",
             },
           },
+          ["core.journal"] = {
+            config = {
+              strategy = "flat",
+            },
+          },
           ["core.ui"] = {},
           ["core.integrations.treesitter"] = {},
           ["core.integrations.telescope"] = {},
