@@ -155,4 +155,7 @@ return {
   {
     "neovimhaskell/haskell-vim",
   },
+  {
+    "purescript-contrib/purescript-vim",
+  },
 }
