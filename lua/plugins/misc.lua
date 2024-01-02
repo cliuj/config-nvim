@@ -62,16 +62,6 @@ return {
     end,
   },
   {
-    "ggandor/leap.nvim",
-    commit = "dabcce410ea8655f3c0acaee8da8f366b4a629a8",
-    config = function()
-      require("leap").add_default_mappings()
-      -- Give back default x,X functionality
-      vim.keymap.del({ "x", "o" }, "x")
-      vim.keymap.del({ "x", "o" }, "X")
-    end,
-  },
-  {
     "boltlessengineer/bufterm.nvim",
     commit = "e2251bffcfb2117395e9bc1a82640f9671267e0d",
     config = function()
