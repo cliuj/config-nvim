@@ -38,8 +38,6 @@ return {
           ["core.ui"] = {},
           ["core.integrations.treesitter"] = {},
           ["core.integrations.telescope"] = {},
-          -- ["core.tempus"] = {}, -- Need neovim@v0.10.0
-          -- ["core.ui.calendar"] = {}, -- Need neovim@v0.10.0
         },
       }
     end,
