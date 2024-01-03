@@ -39,4 +39,6 @@ end
 
 if require('bufterm') ~= nil then
   map("n", "<leader>;", "<cmd>tabnew | BufTermEnter<cr>", { noremap = true })
+if require('toggleterm') ~= nil then
+  map("n", "<leader>;", "<cmd>ToggleTerm<cr>", { noremap = true })
 end

@@ -51,7 +51,7 @@ opt.splitright = true
 
 opt.colorcolumn = "80"
 
-opt.hidden = false
+opt.hidden = true
 
 opt.conceallevel = 2
 
