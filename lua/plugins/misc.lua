@@ -70,13 +70,6 @@ return {
     end,
   },
   {
-    "boltlessengineer/bufterm.nvim",
-    commit = "7aae848dff66a24425b4dcaf0567c4620edf45be",
-    config = function()
-      require('bufterm').setup()
-    end,
-  },
-  {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
