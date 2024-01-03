@@ -68,7 +68,7 @@ return {
         sort_case_insensitive = false,
 
         window = {
-          position = "right",
+          position = "left",
           width = 32,
         },
         buffers = {
