@@ -71,7 +71,7 @@ return {
   },
   {
     "boltlessengineer/bufterm.nvim",
-    commit = "e2251bffcfb2117395e9bc1a82640f9671267e0d",
+    commit = "7aae848dff66a24425b4dcaf0567c4620edf45be",
     config = function()
       require('bufterm').setup()
     end,
