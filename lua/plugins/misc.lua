@@ -19,6 +19,11 @@ return {
     config = function()
       require('neorg').setup {
         load = {
+          ["core.qol.todo_items"] = {
+            config = {
+              create_todo_items = true,
+            },
+          },
           ["core.defaults"] = {},
           ["core.concealer"] = {},
           ["core.dirman"] = {
