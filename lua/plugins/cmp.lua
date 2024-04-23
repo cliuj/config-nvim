@@ -79,24 +79,17 @@ return {
   {
     "uga-rosa/cmp-dictionary",
     opts = {
-      exact = 2,
+      exact_length = 2,
       first_case_insensitive = false,
-      document = false,
-      document_command = "wn %s -over",
-      async = false,
-      sqlite = false,
-      max_items = -1,
-      capacity = 5,
-      debug = false,
+      document = {
+        enable = true,
+        command = { "wn", "${label}", "-over" },
+      },
+      max_number_items = -1,
     },
     config = function(_, opts)
       local dict = require("cmp_dictionary")
       dict.setup(opts)
-      dict.switcher({
-        spelllang = {
-          en = "/usr/share/dict/usa"
-        },
-      })
     end
   },
   {
