@@ -69,6 +69,15 @@ return {
       "sindrets/diffview.nvim",
       "nvim-telescope/telescope.nvim",
     },
+    opts = {
+      kind = "split",
+      log_view = {
+        kind = "split",
+      },
+      commit_editor = {
+        kind = "split",
+      },
+    },
     config = true,
   },
   {
