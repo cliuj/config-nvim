@@ -108,8 +108,8 @@ return {
     "uga-rosa/cmp-dictionary",
     opts = {
       paths = {
-        "/usr/share/dict/words",
-        --"/usr/share/dict/usa",
+        --"/usr/share/dict/words",
+        "/usr/share/dict/usa",
       },
       sources = {
         {
