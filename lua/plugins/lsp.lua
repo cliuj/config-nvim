@@ -145,6 +145,18 @@ return {
     end,
   },
   {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {
+      always_trigger = true,
+      toggle_key = "<C-k>",
+      floating_window_above_cur_line = true,
+    },
+    config = function(_, opts)
+      require'lsp_signature'.setup(opts)
+    end
+  },
+  {
     "elkowar/yuck.vim"
   },
   {
