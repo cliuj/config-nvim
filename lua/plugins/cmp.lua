@@ -107,13 +107,18 @@ return {
   {
     "uga-rosa/cmp-dictionary",
     opts = {
+      paths = {
+        "/usr/share/dict/words",
+        --"/usr/share/dict/usa",
+      },
+      sources = {
+        {
+          name = "dictionary",
+          keyword_length = 2,
+        },
+      },
       exact_length = 2,
       first_case_insensitive = false,
-      document = {
-        enable = true,
-        command = { "wn", "${label}", "-over" },
-      },
-      max_number_items = -1,
     },
     config = function(_, opts)
       local dict = require("cmp_dictionary")
