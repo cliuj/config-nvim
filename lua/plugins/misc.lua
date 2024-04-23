@@ -1,7 +1,6 @@
 return {
   {
     'echasnovski/mini.misc', version = '*',
-    tag = "v0.9.0",
     config = function()
       require("mini.misc").setup()
       MiniMisc.setup_auto_root({".git"})
@@ -9,7 +8,6 @@ return {
   },
   {
     'iamcco/markdown-preview.nvim',
-    version = "0.0.10",
     event = "BufRead",
     build = ":call mkdp#util#install()",
   },
@@ -58,7 +56,6 @@ return {
   },
   {
     'TimUntersberger/neogit',
-    commit = "68a3e90e9d1ed9e362317817851d0f34b19e426b",
     dependencies = {
       'nvim-lua/plenary.nvim',
     },

@@ -1,7 +1,6 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    version = "0.1.2",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-project.nvim",
@@ -38,7 +37,6 @@ return {
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
-    version = "2.64",
     cmd = "Neotree",
     dependencies = {
       "nvim-tree/nvim-web-devicons"
@@ -153,7 +151,6 @@ return {
   },
   {
     "echasnovski/mini.indentscope",
-    version = "0.9.0",
     event = { "BufReadPre", "BufNewFile" },
     opts = {
       symbol = "│",
