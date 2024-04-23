@@ -46,6 +46,7 @@ return {
   -- auto completion
   {
     "hrsh7th/nvim-cmp",
+    version = false,
     -- load cmp on InsertEnter
     event = "InsertEnter",
     -- these dependencies will only be loaded when cmp loads
@@ -58,9 +59,11 @@ return {
     	"saadparwaiz1/cmp_luasnip",
       "nvim-neorg/neorg",
       "uga-rosa/cmp-dictionary",
+      "petertriho/cmp-git",
     },
     opts = function()
       local cmp = require("cmp")
+      local defaults = require("cmp.config.default")()
       return {
         completion = {
           completeopt = "menu,menuone,noinsert",
@@ -69,6 +72,10 @@ return {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
           end,
+        },
+        window = {
+          documentation = cmp.config.window.bordered(),
+          completion = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
           ["<Tab>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -83,25 +90,20 @@ return {
           { name = "nvim_lsp" },
           { name = "nvim_lua" },
           { name = "luasnip" },
-          {
-            name = "buffer",
-            option = {
-              get_bufnrs = function()
-                return vim.api.nvim_list_bufs()
-              end
-            }
-          },
           { name = "path" },
           { name = "neorg"},
+          { name = "git" },
           {
             name = "dictionary",
             keyword_length = 2,
           },
         }),
+        korting = defaults.sorting,
       }
     end,
     config = function(_, opts)
       require("cmp").setup(opts)
+      require('cmp_nvim_lsp').default_capabilities()
     end,
   },
   {
