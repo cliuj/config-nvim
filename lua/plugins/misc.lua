@@ -11,9 +11,16 @@ return {
     event = "BufRead",
     build = ":call mkdp#util#install()",
   },
+
+  {
+      "vhyrro/luarocks.nvim",
+      priority = 1000,
+      config = true,
+  },
   {
     'nvim-neorg/neorg',
-    build = ":Neorg sync-parsers",
+    lazy = false,
+    version = "*",
     config = function()
       require('neorg').setup {
         load = {
@@ -52,6 +59,7 @@ return {
     dependencies = {
       { "nvim-lua/plenary.nvim" },
       { "nvim-neorg/neorg-telescope" },
+      { "luarocks.nvim" },
     },
   },
   {
