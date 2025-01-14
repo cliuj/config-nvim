@@ -93,9 +93,10 @@ return {
           { name = "path" },
           { name = "neorg"},
           { name = "git" },
+          { name = "buffer" },
           {
             name = "dictionary",
-            keyword_length = 2,
+            keyword_length = 4,
           },
         }),
         korting = defaults.sorting,
@@ -115,10 +116,10 @@ return {
       sources = {
         {
           name = "dictionary",
-          keyword_length = 2,
+          keyword_length = 5,
         },
       },
-      exact_length = 2,
+      exact_length = 5,
       first_case_insensitive = false,
     },
     config = function(_, opts)
