@@ -64,6 +64,13 @@ return {
         enable_git_status = true,
         enable_diagnostics = true,
         sort_case_insensitive = false,
+        filesystem = {
+          filtered_items = {
+            visible = true,
+            hide_dotfiles = false,
+            hide_gitignored = false,
+          }
+        },
 
         window = {
           position = "left",
@@ -111,7 +118,7 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    tag = "v0.9.0",
+    tag = "v0.9.2",
     build = ":TSUpdate",
     cmd = { "TSUpdateSync" },
     event = { "BufReadPost", "BufNewFile" },
