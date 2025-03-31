@@ -14,7 +14,7 @@ opt.updatetime = 300
 opt.shell = "fish"
 
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false
 
 -- Cursor
 opt.cursorline = true
