@@ -165,4 +165,7 @@ return {
   {
     "purescript-contrib/purescript-vim",
   },
+  {
+    "prisma/vim-prisma",
+  },
 }
