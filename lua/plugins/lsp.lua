@@ -168,4 +168,7 @@ return {
   {
     "prisma/vim-prisma",
   },
+  {
+    "jparise/vim-graphql",
+  }
 }
