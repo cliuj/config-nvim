@@ -17,50 +17,6 @@ return {
       priority = 1000,
       config = true,
   },
-  {
-    'nvim-neorg/neorg',
-    lazy = false,
-    version = "*",
-    config = function()
-      require('neorg').setup {
-        load = {
-          ["core.qol.todo_items"] = {
-            config = {
-              create_todo_items = true,
-            },
-          },
-          ["core.defaults"] = {},
-          ["core.concealer"] = {},
-          ["core.dirman"] = {
-            config = {
-              workspaces = {
-                root = "~/documents/norg",
-                notes = "~/documents/norg/notes",
-                planner = "~/documents/norg/planners",
-              },
-            },
-          },
-          ["core.completion"] = {
-            config = {
-              engine = "nvim-cmp",
-            },
-          },
-          ["core.journal"] = {
-            config = {
-              strategy = "flat",
-            },
-          },
-          ["core.ui"] = {},
-          ["core.integrations.treesitter"] = {},
-          ["core.integrations.telescope"] = {},
-        },
-      }
-    end,
-    dependencies = {
-      { "nvim-lua/plenary.nvim" },
-      { "nvim-neorg/neorg-telescope" },
-      { "luarocks.nvim" },
-    },
   },
   {
     'NeogitOrg/neogit',
