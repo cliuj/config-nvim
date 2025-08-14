@@ -36,7 +36,6 @@ opt.viminfo = ""
 opt.viminfofile = "NONE"
 
 -- Misc
-opt.clipboard = "unnamedplus"
 opt.scrolloff = 5
 opt.ignorecase = true
 opt.mouse = "a"
@@ -67,3 +66,19 @@ opt.fillchars = {
    foldsep = "│",
    foldclose = "▸",
 }
+
+-- Clipboard
+-- Setup 'clipboard' support
+g.clipboard = {
+  name = 'cb',
+  copy = {
+    ['+'] = 'cb copy',
+    ['*'] = 'cb copy',
+  },
+  paste = {
+    ['+'] = 'cb paste',
+    ['*'] = 'cb paste',
+  },
+  cache_enabled = true,
+}
+opt.clipboard = "unnamedplus"
