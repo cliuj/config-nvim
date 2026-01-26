@@ -58,7 +58,6 @@ return {
     	"hrsh7th/cmp-path",
     	"saadparwaiz1/cmp_luasnip",
       "nvim-neorg/neorg",
-      "uga-rosa/cmp-dictionary",
       "petertriho/cmp-git",
     },
     opts = function()
@@ -94,10 +93,6 @@ return {
           { name = "neorg"},
           { name = "git" },
           { name = "buffer" },
-          {
-            name = "dictionary",
-            keyword_length = 4,
-          },
         }),
         korting = defaults.sorting,
       }
@@ -109,23 +104,7 @@ return {
   },
   {
     "uga-rosa/cmp-dictionary",
-    opts = {
-      paths = {
-        "/usr/share/dict/words",
-      },
-      sources = {
-        {
-          name = "dictionary",
-          keyword_length = 5,
-        },
-      },
-      exact_length = 5,
-      first_case_insensitive = false,
-    },
-    config = function(_, opts)
-      local dict = require("cmp_dictionary")
-      dict.setup(opts)
-    end
+    enabled = false, -- disabled: /usr/share/dict/words not available
   },
   {
     "echasnovski/mini.pairs",
