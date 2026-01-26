@@ -30,6 +30,13 @@ return {
     cmd = "Telescope",
   },
   {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make",
+    config = function()
+      require("telescope").load_extension("fzf")
+    end,
+  },
+  {
     "nvim-tree/nvim-web-devicons",
     lazy = true,
   },
@@ -43,18 +50,20 @@ return {
       vim.cmd([[Neotree close]])
     end,
     config = function()
-      local fn = vim.fn
+      -- Configure diagnostic signs using the modern API
+      vim.diagnostic.config({
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN] = " ",
+            [vim.diagnostic.severity.INFO] = " ",
+            [vim.diagnostic.severity.HINT] = "󰨼",
+          },
+        },
+      })
+
       -- Unless you are still migrating, remove the deprecated commands from v1.x
       vim.cmd([[let g:neo_tree_remove_legacy_commands = 1]])
-      -- If you want icons for diagnostic errors, you'll need to define them somewhere:
-      fn.sign_define("DiagnosticSignError",
-        {text = " ", texthl = "DiagnosticSignError"})
-      fn.sign_define("DiagnosticSignWarn",
-        {text = " ", texthl = "DiagnosticSignWarn"})
-      fn.sign_define("DiagnosticSignInfo",
-        {text = " ", texthl = "DiagnosticSignInfo"})
-      fn.sign_define("DiagnosticSignHint",
-        {text = "󰨼", texthl = "DiagnosticSignHint"})
 
       require("neo-tree").setup({
         close_if_last_window = false,
@@ -115,7 +124,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     config = function()
       require("nvim-treesitter").setup({
-        ensure_install = {
+        ensure_installed = {
           "bash",
           "c",
           "html",

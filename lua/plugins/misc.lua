@@ -8,10 +8,19 @@ return {
   },
   {
     'iamcco/markdown-preview.nvim',
-    event = "BufRead",
-    build = ":call mkdp#util#install()",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
   },
-
+  -- For `plugins/markview.lua` users.
+  {
+      "OXY2DEV/markview.nvim",
+      lazy = false,
+      -- Completion for `blink.cmp`
+      -- dependencies = { "saghen/blink.cmp" },
+  },
   {
     "vhyrro/luarocks.nvim",
     priority = 1000,

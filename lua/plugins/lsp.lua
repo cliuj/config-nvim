@@ -28,7 +28,15 @@ return {
     dependencies = {
       -- lua
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
-      { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
+      {
+        "folke/lazydev.nvim",
+        ft = "lua",
+        opts = {
+          library = {
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          },
+        },
+      },
       {
         "hrsh7th/cmp-nvim-lsp",
       },
@@ -46,15 +54,6 @@ return {
         -- so that we can use hover
         virtual_text = false,
         severity_sort = true,
-      },
-      -- Automatically format on save
-      autoformat = true,
-      -- options for vim.lsp.buf.format
-      -- `bufnr` and `filter` is handled by the LazyVim formatter,
-      -- but can be also overridden when specified
-      format = {
-        formatting_options = nil,
-        timeout_ms = nil,
       },
       -- LSP Server Settings
       -- @type lspconfig.options

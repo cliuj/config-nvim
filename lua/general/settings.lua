@@ -6,7 +6,6 @@ g.mapleader = ' '
 g.maplocalleader = ' '
 
 -- Performance settings
-opt.lazyredraw = true
 opt.ttimeoutlen = 30
 opt.updatetime = 300
 
@@ -38,6 +37,7 @@ opt.viminfofile = "NONE"
 -- Misc
 opt.scrolloff = 5
 opt.ignorecase = true
+opt.smartcase = true
 opt.mouse = "a"
 opt.backup = false
 opt.wrap = false

@@ -7,36 +7,29 @@ map('n', '<leader>w', '<C-w>', { noremap = true })
 map('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
 
 
--- Plugins
-if require("mason") ~= nil then
-  map('n', "<leader>cm", "<cmd>Mason<cr>", { noremap = true })
-end
+-- Plugin keymaps (will error at startup if plugin is missing)
+require("mason")
+map('n', "<leader>cm", "<cmd>Mason<cr>", { noremap = true })
 
-if require('telescope') ~= nil then
-  map("n", "<leader>f", "<cmd>Telescope find_files find_command=fd,--hidden,--exclude,.git<cr>", { noremap = true })
-  map("n", "<leader>/", "<cmd>Telescope live_grep<cr>", { noremap = true })
-  map("n", "<leader>:", "<cmd>Telescope command_history<cr>", { noremap = true })
-  map("n", "<leader>b", "<cmd>Telescope buffers show_all_buffer=true<cr>", { noremap = true })
+require("telescope")
+map("n", "<leader>f", "<cmd>Telescope find_files find_command=fd,--hidden,--exclude,.git<cr>", { noremap = true })
+map("n", "<leader>/", "<cmd>Telescope live_grep<cr>", { noremap = true })
+map("n", "<leader>:", "<cmd>Telescope command_history<cr>", { noremap = true })
+map("n", "<leader>b", "<cmd>Telescope buffers show_all_buffer=true<cr>", { noremap = true })
 
-  if require('telescope').load_extension('project') ~= nil then
-    map("n", "<leader>p", "<cmd>Telescope project<cr>", { noremap = true })
-  end
-end
+require("telescope").load_extension("project")
+map("n", "<leader>p", "<cmd>Telescope project<cr>", { noremap = true })
 
-if require('neo-tree') ~= nil then
-  map("n", "<leader>l", "<cmd>Neotree filesystem reveal<cr>", { noremap = true })
-end
+require("neo-tree")
+map("n", "<leader>l", "<cmd>Neotree filesystem reveal<cr>", { noremap = true })
 
-if require('luasnip') ~= nil then
-  map("s", "<Tab>", "<cmd>lua require('luasnip').jump(1)<cr>", { noremap = true})
-  map("i", "<S-Tab>", "<cmd>lua require('luasnip').jump(1)<cr>", { noremap = true})
-  map("s", "<S-Tab>", "<cmd>lua require('luasnip').jump(1)<cr>", { noremap = true})
-end
+require("luasnip")
+map("s", "<Tab>", "<cmd>lua require('luasnip').jump(1)<cr>", { noremap = true})
+map("i", "<S-Tab>", "<cmd>lua require('luasnip').jump(-1)<cr>", { noremap = true})
+map("s", "<S-Tab>", "<cmd>lua require('luasnip').jump(-1)<cr>", { noremap = true})
 
-if require('neogit') ~= nil then
-  map("n", "<leader>g", "<cmd>Neogit kind=vsplit<cr>", { noremap = true })
-end
+require("neogit")
+map("n", "<leader>g", "<cmd>Neogit kind=vsplit<cr>", { noremap = true })
 
-if require('toggleterm') ~= nil then
-  map("n", "<leader>;", "<cmd>ToggleTerm<cr>", { noremap = true })
-end
+require("toggleterm")
+map("n", "<leader>;", "<cmd>ToggleTerm<cr>", { noremap = true })
