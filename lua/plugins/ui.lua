@@ -12,7 +12,6 @@ return {
           project = {
             base_dirs = {
               "~/.config",
-              { "~/develop", max_depth = 3 },
             },
             hidden_files = true, -- default: false
             theme = "dropdown",
@@ -93,66 +92,54 @@ return {
   },
   {
     "folke/which-key.nvim",
-    version = "1.4.3",
     event = "VeryLazy",
     opts = {
-      plugins = { spelling = true },
-      defaults = {
-        mode = { "n" , "v" },
-        ["g"] = { name = "+goto" },
-        ["]"] = { name = "+next" },
-        ["["] = { name = "+prev" },
-        ["<leader>b"] = { name = "+buffer" },
-        ["<leader>f"] = { name = "+file/find" },
-      },
+      plugins = { spelling = { enabled = true } },
     },
     config = function(_, opts)
       local wk = require("which-key")
       wk.setup(opts)
-      wk.register(opts.defaults)
+      wk.add({
+        { "g", group = "goto" },
+        { "]", group = "next" },
+        { "[", group = "prev" },
+        { "<leader>b", group = "buffer" },
+        { "<leader>f", group = "file/find" },
+      })
     end,
-  },
-  {
-    "nvim-treesitter/playground"
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    tag = "v0.9.2",
     build = ":TSUpdate",
     cmd = { "TSUpdateSync" },
     event = { "BufReadPost", "BufNewFile" },
-    config = function()
-      require('nvim-treesitter.configs').setup{
-        highlight = {
-          enable = true,
-        },
-        indent = {
-          enable = true,
-        },
-        context_commentstring = {
-          enable = true,
-          enable_autocmd = false,
-        },
-        ensure_installed = {
-          "bash",
-          "c",
-          "html",
-          "javascript",
-          "json",
-          "lua",
-          "luap",
-          "markdown",
-          "markdown_inline",
-          "python",
-          "query",
-          "regex",
-          "tsx",
-          "typescript",
-          "vim",
-          "yaml",
-        },
-      }
-    end,
+    main = "nvim-treesitter.configs",
+    opts = {
+      highlight = {
+        enable = true,
+      },
+      indent = {
+        enable = true,
+      },
+      ensure_installed = {
+        "bash",
+        "c",
+        "html",
+        "javascript",
+        "json",
+        "lua",
+        "luap",
+        "markdown",
+        "markdown_inline",
+        "python",
+        "query",
+        "regex",
+        "tsx",
+        "typescript",
+        "vim",
+        "yaml",
+      },
+    },
   },
   {
     "echasnovski/mini.indentscope",
