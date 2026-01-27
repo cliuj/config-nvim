@@ -95,4 +95,11 @@ return {
       end,
     },
   },
+
+  -- Commenting: gcc to toggle line, gc + motion for block
+  {
+    "echasnovski/mini.comment",
+    event = "VeryLazy",
+    opts = {},
+  },
 }
