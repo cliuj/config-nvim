@@ -212,4 +212,24 @@ return {
       },
     },
   },
+
+  -- Aerial: Code outline sidebar
+  {
+    "stevearc/aerial.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+    keys = {
+      { "<leader>a", "<cmd>AerialToggle<cr>", desc = "Toggle code outline (Aerial)" },
+      { "[a", "<cmd>AerialPrev<cr>", desc = "Prev aerial symbol" },
+      { "]a", "<cmd>AerialNext<cr>", desc = "Next aerial symbol" },
+    },
+    opts = {
+      layout = {
+        min_width = 30,
+      },
+      attach_mode = "global",
+    },
+  },
 }
