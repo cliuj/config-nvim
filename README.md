@@ -58,6 +58,16 @@ Personal Neovim configuration using [lazy.nvim](https://github.com/folke/lazy.nv
 | `<leader>b` | n | List buffers (Telescope) |
 | `<leader>p` | n | Switch project (Telescope) |
 | `<leader>l` | n | Open file explorer (Neo-tree) |
+| `-` | n | Open parent directory (Oil) |
+
+### Sessions (persistence.nvim)
+
+| Key | Mode | Action |
+|-----|------|--------|
+| `<leader>qs` | n | Restore session (current directory) |
+| `<leader>ql` | n | Restore last session (any directory) |
+| `<leader>qS` | n | Select from saved sessions |
+| `<leader>qd` | n | Don't save session on exit |
 
 ### Buffers
 
@@ -125,6 +135,13 @@ Personal Neovim configuration using [lazy.nvim](https://github.com/folke/lazy.nv
 | Key | Mode | Action |
 |-----|------|--------|
 | `<leader>;` | n | Toggle terminal |
+
+### Markdown (markview)
+
+| Key | Mode | Action |
+|-----|------|--------|
+| `<leader>mr` | n | Refresh markview rendering |
+| `<leader>mt` | n | Toggle markview on/off |
 
 ### goto-preview (LSP peek)
 
@@ -195,6 +212,7 @@ Personal Neovim configuration using [lazy.nvim](https://github.com/folke/lazy.nv
 | [trouble.nvim](https://github.com/folke/trouble.nvim) | Better diagnostics list |
 | [mini.indentscope](https://github.com/echasnovski/mini.indentscope) | Animated indent guides |
 | [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) | File icons |
+| [oil.nvim](https://github.com/stevearc/oil.nvim) | Edit filesystem like a buffer |
 
 ### Git
 
@@ -218,6 +236,7 @@ Personal Neovim configuration using [lazy.nvim](https://github.com/folke/lazy.nv
 | Plugin | Description |
 |--------|-------------|
 | [mini.misc](https://github.com/echasnovski/mini.misc) | Auto-root to git directory |
+| [persistence.nvim](https://github.com/folke/persistence.nvim) | Session management (auto-save/restore) |
 | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | Terminal management |
 | [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) | Markdown preview in browser |
 | [markview.nvim](https://github.com/OXY2DEV/markview.nvim) | In-editor markdown rendering |
