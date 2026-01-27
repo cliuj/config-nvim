@@ -120,6 +120,14 @@ Personal Neovim configuration using [lazy.nvim](https://github.com/folke/lazy.nv
 | `/` | n | Search with flash labels |
 | `<C-s>` | c | Toggle flash labels in search |
 
+### Code Outline (aerial)
+
+| Key | Mode | Action |
+|-----|------|--------|
+| `<leader>a` | n | Toggle code outline sidebar |
+| `]a` | n | Next symbol |
+| `[a` | n | Previous symbol |
+
 ### Editing
 
 | Key | Mode | Action |
@@ -213,6 +221,7 @@ Personal Neovim configuration using [lazy.nvim](https://github.com/folke/lazy.nv
 | [mini.indentscope](https://github.com/echasnovski/mini.indentscope) | Animated indent guides |
 | [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) | File icons |
 | [oil.nvim](https://github.com/stevearc/oil.nvim) | Edit filesystem like a buffer |
+| [aerial.nvim](https://github.com/stevearc/aerial.nvim) | Code outline sidebar |
 
 ### Git
 
