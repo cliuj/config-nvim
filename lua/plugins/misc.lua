@@ -102,4 +102,15 @@ return {
     event = "VeryLazy",
     opts = {},
   },
+
+  -- Buffer delete without closing window
+  {
+    "echasnovski/mini.bufremove",
+    event = "VeryLazy",
+    keys = {
+      { "<leader>bd", function() require("mini.bufremove").delete(0, false) end, desc = "Delete buffer" },
+      { "<leader>bD", function() require("mini.bufremove").delete(0, true) end, desc = "Delete buffer (force)" },
+    },
+    opts = {},
+  },
 }
