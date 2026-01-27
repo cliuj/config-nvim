@@ -1,32 +1,35 @@
 return {
-  -- cmdline tools and lsp servers
+  -- Mason - manages LSP/tool installations (use :Mason to browse/install manually)
   {
     "williamboman/mason.nvim",
     cmd = "Mason",
+    opts = {},
+  },
+
+  -- Mason-tool-installer - auto-installs formatters, linters, etc.
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = { "williamboman/mason.nvim" },
     opts = {
       ensure_installed = {
+        -- Formatters
         "stylua",
-        "shellcheck",
         "shfmt",
-        "flake8",
-        "pyright",
-        "marksman",
-        "json-lsp",
+        -- Linters
+        "shellcheck",
         "luacheck",
-        "luaformatter",
-        "bash-language-server",
-        "haskell-language-server",
-        "lua-language-server",
-        "yaml-language-server",
       },
     },
   },
-  {
-    "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
 
+  -- Mason-lspconfig - auto-installs and enables LSP servers
+  {
+    "williamboman/mason-lspconfig.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      -- lua
+      "williamboman/mason.nvim",
+      "neovim/nvim-lspconfig",
+      "saghen/blink.cmp",
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
       {
         "folke/lazydev.nvim",
@@ -37,106 +40,53 @@ return {
           },
         },
       },
-      { "saghen/blink.cmp" },
-      { "mason.nvim" },
-      { "williamboman/mason-lspconfig.nvim" },
     },
-
     opts = {
-      -- options for vim.diagnostic.config()
-      diagnostics = {
+      ensure_installed = {
+        "lua_ls",
+        "jsonls",
+        "hls",
+        "bashls",
+        "marksman",
+        "pyright",
+        "yamlls",
+      },
+    },
+    config = function(_, opts)
+      -- Global capabilities for all LSP servers (for blink.cmp completion)
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
+      vim.lsp.config("*", { capabilities = capabilities })
+
+      -- Diagnostics configuration
+      vim.diagnostic.config({
         underline = true,
         update_in_insert = false,
-        -- Enabling this will result in the diagnostic messages
-        -- to be cut off if the screen is too narrow. Thus disabling
-        -- so that we can use hover
         virtual_text = false,
         severity_sort = true,
-      },
-      -- LSP Server Settings
-      -- @type lspconfig.options
-      servers = {
-        jsonls = {},
-        hls = {},
-        lua_ls = {
-          -- mason = false, -- set to false if you don't want this server to be installed with mason
-          settings = {
-            Lua = {
-              workspace = {
-                checkThirdParty = false,
-              },
-              completion = {
-                callSnippet = "Replace",
-              },
-              telemetry = {
-                enable = false
-              },
-              diagnostics = {
-                disable = {
-                  "missing-fields"
-                },
-              },
-            },
+      })
+
+      -- Server-specific settings
+      vim.lsp.config("lua_ls", {
+        settings = {
+          Lua = {
+            workspace = { checkThirdParty = false },
+            completion = { callSnippet = "Replace" },
+            telemetry = { enable = false },
+            diagnostics = { disable = { "missing-fields" } },
           },
         },
-      },
-      setup = {
-        -- example to setup with typescript.nvim
-        -- tsserver = function(_, opts)
-        --   require("typescript").setup({ server = opts })
-        --   return true
-        -- end,
-        -- Specify * to use this function as a fallback for any server
-        -- ["*"] = function(server, opts) end,
-      },
-    },
-
-    config = function(_, opts)
-      -- diagnostics
-      vim.diagnostic.config(opts.diagnostics)
-
-      local servers = opts.servers
-      local capabilities = require("blink.cmp").get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-      local function setup(server)
-        local server_opts = vim.tbl_deep_extend("force", {
-          capabilities = vim.deepcopy(capabilities),
-        }, servers[server] or {})
-
-        if opts.setup[server] then
-          if opts.setup[server](server, server_opts) then
-            return
-          end
-        elseif opts.setup["*"] then
-          if opts.setup["*"](server, server_opts) then
-            return
-          end
-        end
-        require("lspconfig")[server].setup(server_opts)
-      end
-
-      local mlsp = require("mason-lspconfig")
-      local available = mlsp.get_available_servers()
-
-      local ensure_installed = {} ---@type string[]
-      for server, server_opts in pairs(servers) do
-        if server_opts then
-          server_opts = server_opts == true and {} or server_opts
-          -- run manual setup if mason=false or if this is a server that cannot be installed with mason-lspconfig
-          if server_opts.mason == false or not vim.tbl_contains(available, server) then
-            setup(server)
-          else
-            ensure_installed[#ensure_installed + 1] = server
-          end
-        end
-      end
-
-      require("mason-lspconfig").setup({
-        ensure_installed = ensure_installed,
-        handlers = { setup },
       })
+
+      require("mason-lspconfig").setup(opts)
     end,
   },
+
+  -- nvim-lspconfig - provides LSP configurations (loaded by mason-lspconfig)
+  {
+    "neovim/nvim-lspconfig",
+    lazy = true,
+  },
+
   {
     "ray-x/lsp_signature.nvim",
     event = "VeryLazy",
@@ -146,22 +96,62 @@ return {
       floating_window_above_cur_line = true,
     },
     config = function(_, opts)
-      require'lsp_signature'.setup(opts)
-    end
+      require("lsp_signature").setup(opts)
+    end,
   },
+
+  -- Formatting
   {
-    "elkowar/yuck.vim"
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    keys = {
+      {
+        "<leader>cf",
+        function()
+          require("conform").format({ async = true })
+        end,
+        desc = "Format buffer",
+      },
+    },
+    opts = {
+      formatters_by_ft = {
+        lua = { "stylua" },
+        sh = { "shfmt" },
+        bash = { "shfmt" },
+        zsh = { "shfmt" },
+      },
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_format = "fallback",
+      },
+    },
   },
+
+  -- Linting
   {
-    "neovimhaskell/haskell-vim",
+    "mfussenegger/nvim-lint",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      local lint = require("lint")
+      lint.linters_by_ft = {
+        lua = { "luacheck" },
+        sh = { "shellcheck" },
+        bash = { "shellcheck" },
+      }
+      -- Auto-lint on save and insert leave
+      vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
+        callback = function()
+          lint.try_lint()
+        end,
+      })
+    end,
   },
-  {
-    "purescript-contrib/purescript-vim",
-  },
-  {
-    "prisma/vim-prisma",
-  },
-  {
-    "jparise/vim-graphql",
-  }
+
+  -- Syntax plugins
+  { "elkowar/yuck.vim" },
+  { "neovimhaskell/haskell-vim" },
+  { "purescript-contrib/purescript-vim" },
+  { "prisma/vim-prisma" },
+  { "jparise/vim-graphql" },
 }
