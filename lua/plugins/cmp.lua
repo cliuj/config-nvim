@@ -39,7 +39,10 @@ return {
         ["<C-e>"] = { "cancel", "fallback" },
       },
       completion = {
-        menu = { border = "rounded" },
+        menu = {
+          border = "none",
+          max_height = 7,
+        },
         documentation = {
           auto_show = true,
           window = { border = "rounded" },
