@@ -2,7 +2,7 @@ return {
   {
     "cliuj/midnight-meadow.nvim",
     priority = 1000,
-    lazy = true,
+    lazy = false,
     config = function()
       vim.cmd.colorscheme("midnight-meadow")
     end,
