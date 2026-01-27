@@ -172,9 +172,25 @@ return {
   {
     "rmagatti/goto-preview",
     config = function()
-      require("goto-preview").setup{
-        default_mappings = true;
-      }
+      require("goto-preview").setup({
+        default_mappings = true,
+      })
     end,
+  },
+
+  -- Flash: Enhanced navigation with search labels
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {
+      modes = {
+        -- Disable `s` mapping, use search (/) instead
+        char = { enabled = false },
+        search = { enabled = true },
+      },
+    },
+    keys = {
+      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    },
   },
 }
