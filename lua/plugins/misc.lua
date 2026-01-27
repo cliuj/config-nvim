@@ -15,12 +15,15 @@ return {
       vim.fn["mkdp#util#install"]()
     end,
   },
-  -- For `plugins/markview.lua` users.
+  -- Markdown rendering in-editor
   {
     "OXY2DEV/markview.nvim",
     lazy = false,
-    -- Completion for `blink.cmp`
     dependencies = { "saghen/blink.cmp" },
+    keys = {
+      { "<leader>mr", "<cmd>Markview render<cr>", desc = "Markview refresh" },
+      { "<leader>mt", "<cmd>Markview toggle<cr>", desc = "Markview toggle" },
+    },
   },
   {
     "vhyrro/luarocks.nvim",
