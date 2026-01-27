@@ -193,4 +193,23 @@ return {
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
   },
+
+  -- Oil: Edit filesystem like a buffer
+  {
+    "stevearc/oil.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = {
+      { "-", "<cmd>Oil<cr>", desc = "Open parent directory (Oil)" },
+    },
+    opts = {
+      view_options = {
+        show_hidden = true,
+      },
+      keymaps = {
+        ["q"] = "actions.close",
+        ["<C-s>"] = false, -- disable default, conflicts with flash
+        ["<C-v>"] = "actions.select_vsplit",
+      },
+    },
+  },
 }
