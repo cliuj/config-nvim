@@ -34,6 +34,9 @@ opt.backspace = {"indent", "eol", "start"}
 opt.viminfo = ""
 opt.viminfofile = "NONE"
 
+-- Auto-reload files changed outside of Neovim
+opt.autoread = true
+
 -- Misc
 opt.scrolloff = 5
 opt.ignorecase = true
