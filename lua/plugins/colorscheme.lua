@@ -6,5 +6,12 @@ return {
     config = function()
       vim.cmd.colorscheme("midnight-meadow")
     end,
-  }
+  },
+  {
+    "RedsXDD/neopywal.nvim",
+    name = "neopywal",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 }

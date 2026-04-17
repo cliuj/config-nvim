@@ -7,7 +7,7 @@ return {
     },
     config = function()
       local project_actions = require("telescope._extensions.project.actions")
-      require('telescope').setup {
+      require("telescope").setup({
         extensions = {
           project = {
             base_dirs = {
@@ -21,11 +21,11 @@ return {
             on_project_selected = function(prompt_bufnr)
               -- Do anything you want in here. For example:
               project_actions.change_working_directory(prompt_bufnr, false)
-              vim.cmd[[Telescope find_files find_command=fd,--hidden,--exclude,.git]]
-            end
-          }
-        }
-      }
+              vim.cmd([[Telescope find_files find_command=fd,--hidden,--exclude,.git]])
+            end,
+          },
+        },
+      })
     end,
     cmd = "Telescope",
   },
@@ -44,7 +44,7 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     cmd = "Neotree",
     dependencies = {
-      "nvim-tree/nvim-web-devicons"
+      "nvim-tree/nvim-web-devicons",
     },
     deactivate = function()
       vim.cmd([[Neotree close]])
@@ -76,7 +76,7 @@ return {
             visible = true,
             hide_dotfiles = false,
             hide_gitignored = false,
-          }
+          },
         },
 
         window = {
@@ -127,6 +127,7 @@ return {
         ensure_installed = {
           "bash",
           "c",
+          "dart",
           "html",
           "javascript",
           "json",
@@ -179,20 +180,27 @@ return {
   },
 
   -- Flash: Enhanced navigation with search labels
-  {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    opts = {
-      modes = {
-        -- Disable `s` mapping, use search (/) instead
-        char = { enabled = false },
-        search = { enabled = true },
-      },
-    },
-    keys = {
-      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-    },
-  },
+  --{
+  --  "folke/flash.nvim",
+  --  event = "VeryLazy",
+  --  opts = {
+  --    modes = {
+  --      -- Disable `s` mapping, use search (/) instead
+  --      char = { enabled = false },
+  --      search = { enabled = true },
+  --    },
+  --  },
+  --  keys = {
+  --    {
+  --      "<c-s>",
+  --      mode = { "c" },
+  --      function()
+  --        require("flash").toggle()
+  --      end,
+  --      desc = "Toggle Flash Search",
+  --    },
+  --  },
+  --},
 
   -- Oil: Edit filesystem like a buffer
   {

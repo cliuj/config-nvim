@@ -156,12 +156,20 @@ return {
       { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
       { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer diagnostics (Trouble)" },
       { "<leader>xs", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols (Trouble)" },
-      { "]x", function()
+      {
+        "]x",
+        function()
           require("trouble").next({ skip_groups = true, jump = true })
-        end, desc = "Next trouble item" },
-      { "[x", function()
+        end,
+        desc = "Next trouble item",
+      },
+      {
+        "[x",
+        function()
           require("trouble").prev({ skip_groups = true, jump = true })
-        end, desc = "Prev trouble item" },
+        end,
+        desc = "Prev trouble item",
+      },
     },
     opts = {},
   },
@@ -172,4 +180,13 @@ return {
   { "purescript-contrib/purescript-vim" },
   { "prisma/vim-prisma" },
   { "jparise/vim-graphql" },
+  {
+    "nvim-flutter/flutter-tools.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "stevearc/dressing.nvim", -- optional for vim.ui.select
+    },
+    config = true,
+  },
 }

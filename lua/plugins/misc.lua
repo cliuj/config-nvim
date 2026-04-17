@@ -20,6 +20,13 @@ return {
     "OXY2DEV/markview.nvim",
     lazy = false,
     dependencies = { "saghen/blink.cmp" },
+    opts = {
+      preview = {
+        modes = { "n", "no", "c" },
+        hybrid_modes = { "n" },
+        linewise_hybrid_mode = true,
+      },
+    },
     keys = {
       { "<leader>mr", "<cmd>Markview render<cr>", desc = "Markview refresh" },
       { "<leader>mt", "<cmd>Markview toggle<cr>", desc = "Markview toggle" },
