@@ -22,14 +22,19 @@ return {
     dependencies = { "saghen/blink.cmp" },
     opts = {
       preview = {
-        modes = { "n", "no", "c" },
-        hybrid_modes = { "n" },
-        linewise_hybrid_mode = true,
+        modes = {},
+        splitview_winopts = { split = "right", wrap = true, linebreak = true },
+      },
+      markdown = {
+        block_quotes = { wrap = true },
+        headings = { org_indent_wrap = true },
+        list_items = { wrap = true },
       },
     },
     keys = {
       { "<leader>mr", "<cmd>Markview render<cr>", desc = "Markview refresh" },
       { "<leader>mt", "<cmd>Markview toggle<cr>", desc = "Markview toggle" },
+      { "<leader>ms", "<cmd>Markview splitToggle<cr>", desc = "Markview splitview" },
     },
   },
   {

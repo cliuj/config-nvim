@@ -120,6 +120,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    branch = "main",
     cmd = { "TSUpdateSync" },
     event = { "BufReadPost", "BufNewFile" },
     config = function()
@@ -178,29 +179,6 @@ return {
       })
     end,
   },
-
-  -- Flash: Enhanced navigation with search labels
-  --{
-  --  "folke/flash.nvim",
-  --  event = "VeryLazy",
-  --  opts = {
-  --    modes = {
-  --      -- Disable `s` mapping, use search (/) instead
-  --      char = { enabled = false },
-  --      search = { enabled = true },
-  --    },
-  --  },
-  --  keys = {
-  --    {
-  --      "<c-s>",
-  --      mode = { "c" },
-  --      function()
-  --        require("flash").toggle()
-  --      end,
-  --      desc = "Toggle Flash Search",
-  --    },
-  --  },
-  --},
 
   -- Oil: Edit filesystem like a buffer
   {
