@@ -1,5 +1,11 @@
 return {
   {
+    "sindrets/diffview.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
+  {
     "NeogitOrg/neogit",
     dependencies = {
       "nvim-lua/plenary.nvim",
