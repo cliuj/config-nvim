@@ -1,5 +1,4 @@
 require("general.settings")
 require("general.lazy")
 require("general.autocmds")
-require("general.aliases")
 require("general.keymaps")
