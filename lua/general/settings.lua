@@ -17,7 +17,9 @@ opt.relativenumber = false
 
 -- Cursor
 opt.cursorline = true
---opt.guicursor = "i:block"
+opt.guicursor =
+  "n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor,t:block-blinkon500-blinkoff500-TermCursor"
+--opt.guicursor = "a:block-Cursor,t:block-blinkon500-blinkoff500-TermCursor"
 
 -- Enable undo file
 opt.undofile = true
@@ -71,18 +73,10 @@ opt.fillchars = {
   foldclose = "▸",
 }
 
--- Clipboard
--- Setup 'clipboard' support
-g.clipboard = {
-  name = "cb",
-  copy = {
-    ["+"] = "cb copy",
-    ["*"] = "cb copy",
-  },
-  paste = {
-    ["+"] = "cb paste",
-    ["*"] = "cb paste",
-  },
-  cache_enabled = true,
-}
 opt.clipboard = "unnamedplus"
+
+opt.path:append("**")
+opt.wildmenu = true
+opt.wildmode = "longest:full,full"
+opt.wildignore = "*/node_modules/*, */.git/*,*/dist/*,*.pyc"
+opt.wildoptions = "fuzzy,pum,tagfile"

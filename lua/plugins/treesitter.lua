@@ -12,6 +12,14 @@ return {
         -- languages = {}, -- override or add new parser sources
         -- parser_dir = vim.fn.stdpath("data") .. "/site/parser",
         -- query_dir = vim.fn.stdpath("data") .. "/site/queries",
+        languages = {
+          haskell = {
+            install_info = {
+              url = "https://github.com/rynewang/tree-sitter-haskell",
+              revision = "6247f81e55392377ef96c58ae7eff037c995dfb9",
+            },
+          },
+        },
       })
     end
   },

@@ -39,6 +39,23 @@ return {
       if vim.fn.executable("dart") == 1 then
         vim.lsp.enable('dartls')
       end
+
+      if vim.fn.executable("haskell-language-server-wrapper") == 1 then
+        vim.lsp.config('hls', { filetypes = { 'haskell', 'lhaskell', 'cabal'}})
+        vim.lsp.enable('hls')
+      end
+
+      vim.diagnostic.config({
+        virtual_text = false,
+        virtual_lines = false,
+        float = { border = 'rounded', source = true },
+      })
+
+      vim.api.nvim_create_autocmd("CursorHold", {
+        callback = function()
+          vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
+        end,
+      })
     end,
   },
 }
