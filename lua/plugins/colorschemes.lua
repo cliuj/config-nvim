@@ -19,7 +19,7 @@ return {
     },
     config = function(_, opts)
       require("midnight-meadow").setup(opts)
-      --vim.cmd.colorscheme("midnight-meadow")
+      vim.cmd.colorscheme("midnight-meadow")
     end,
   },
   {
@@ -63,11 +63,11 @@ return {
     "navarasu/onedark.nvim",
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      require('onedark').setup {
-        style = 'darker'
-      }
+      require("onedark").setup({
+        style = "darker",
+      })
       --require('onedark').load()
-    end
+    end,
   },
   {
     "4513ECHO/vim-colors-hatsunemiku",
@@ -76,5 +76,5 @@ return {
   {
     "mofiqul/vscode.nvim",
     priority = 1000,
-  }
+  },
 }
